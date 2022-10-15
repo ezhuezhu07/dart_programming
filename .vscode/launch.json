@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "abstact_class",
+            "cwd": "abstact_class",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "abstact_class (profile mode)",
+            "cwd": "abstact_class",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "abstact_class (release mode)",
+            "cwd": "abstact_class",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

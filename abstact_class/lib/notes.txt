@@ -1,0 +1,3 @@
+Abstract class:
+ Abstract classes are classes that cannot be initialized (You cannot call its constructor directly )
+ They can contain code or they may just bbe skeleton classes

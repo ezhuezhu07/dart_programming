@@ -1,0 +1,9 @@
+Abstract class:
+ Abstract classes are classes that cannot be initialized (You cannot call its constructor directly )
+ They can contain code or they may just bbe skeleton classes
+
+// ! extends - inherit from particular class (max 1)
+// ! with - The with keyword allow you to mix a "mixin" with your class. [inherit more than 1 class]
+// ! Abstract class can have a constructor
+// ! Abstract class without constructor can act as mixins
+// ! Abstract class with constructor cannot be a mixin

@@ -5,7 +5,24 @@ extension Log on Object {
   void log() => devvtools.log(toString());
 }
 
-void testIt() {}
+mixin CanRun {
+  int get speed;
+  void run() {
+    'Running at a speed of $speed'.log();
+  }
+}
+
+class Cat with CanRun {
+  @override
+  int speed = 10;
+}
+
+void testIt() {
+  final cat = Cat();
+  cat.run();
+  cat.speed = 50;
+  cat.run();
+}
 
 void main() {
   runApp(const MyApp());

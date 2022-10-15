@@ -7,3 +7,9 @@ Abstract class:
 // ! Abstract class can have a constructor
 // ! Abstract class without constructor can act as mixins
 // ! Abstract class with constructor cannot be a mixin
+
+
+Mixins:
+ Mixins are abstract classes that not have constructor
+ // constraints on mixins
+ 

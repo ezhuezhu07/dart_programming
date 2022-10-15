@@ -6,6 +6,14 @@ extension Log on Object {
 }
 
 abstract class CanRun {
+  String get type {
+    if (this is Cat) {
+      return 'cat';
+    } else {
+      return 'some other animal';
+    }
+  }
+
   // abstract method
   @mustCallSuper
   void run() {
@@ -23,13 +31,17 @@ class Cat extends CanRun {
   }
 }
 
+class Dog extends CanRun {}
+
 // ! extends - inherit from particular class (max 1)
 // ! with - The with keyword allow you to mix a "mixin" with your class. [inherit more than 1 class]
 
 void testIt() {
   'testit called'.log();
   final cat = Cat();
-  cat.run();
+  cat.type.log();
+  final dog = Dog();
+  dog.type.log();
 }
 
 void main() {

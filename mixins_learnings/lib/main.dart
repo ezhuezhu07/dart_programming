@@ -1,36 +1,44 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devvtools show log;
+// import 'dart:io';
+import 'package:meta/meta.dart';
+import 'dart:convert';
 
 extension Log on Object {
   void log() => devvtools.log(toString());
 }
 
-abstract class Animal {
-  const Animal();
+extension GetonUri on Object {
+  Future<HttpClientResponse> getUrl(String url) =>
+      HttpClient().getUrl(Uri.parse(url)).then(
+            (req) => req.close(),
+          );
 }
 
-mixin CanRun on Animal {
-  int get speed;
-  void run() {
-    'Running at a speed of $speed'.log();
-  }
+mixin GetMethod {
+  String get url;
+  @useResult
+  Future<String> getResponseString() => getUrl(url).then(
+        (res) => res
+            .transform(
+              utf8.decoder,
+            )
+            .join(),
+      );
 }
 
-class Cat extends Animal with CanRun {
+@immutable
+class Friends with GetMethod {
+  const Friends();
+
   @override
-  int speed = 10;
+  String get url => 'http://127.0.0.1:5555/mixins_learnings/lib/apis/data.json';
 }
 
-class Dog with CanRun {
-  @override
-  int get speed => throw UnimplementedError();
-}
-
-void testIt() {
-  final cat = Cat();
-  cat.run();
-  cat.speed = 50;
-  cat.run();
+void testIt() async {
+  final frnd = await const Friends().getResponseString();
+  frnd.log();
 }
 
 void main() {
